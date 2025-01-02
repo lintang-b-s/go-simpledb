@@ -13,13 +13,13 @@ func TestReadWriteFile(t *testing.T) {
 	page.PutInt(0, 1)
 	page.PutInt(4, 2)
 	page.PutInt(8, 3)
-	page.putString(12, "lintang")
+	page.PutString(12, "lintang")
 	newBlockID := NewBlockID("test.db", 0)
 	err := f1.Write(newBlockID, page)
 	if err != nil {
 		t.Error(err)
 	}
-	
+
 	pageReader := NewPage(4096)
 	err = f1.Read(newBlockID, pageReader)
 	if err != nil {

@@ -28,14 +28,14 @@ func TestReadPaeg(t *testing.T) {
 	page.PutBytes(11, []byte("birda"))  // 5 + 4
 	page.PutBytes(20, []byte("saputra"))
 
-	assert.Equal(t, "lintang", string(page.GetBytes(0)))
-	assert.Equal(t, "birda", string(page.GetBytes(11)))
-	assert.Equal(t, "saputra", string(page.GetBytes(20)))
+	assert.Equal(t, "lintang", string(page.GetString(0)))
+	assert.Equal(t, "birda", string(page.GetString(11)))
+	assert.Equal(t, "saputra", string(page.GetString(20)))
 
 	page = NewPage(50)
-	page.putString(0, "lintang")
-	page.putString(11, "birda")
-	page.putString(20, "saputra")
+	page.PutString(0, "lintang")
+	page.PutString(11, "birda")
+	page.PutString(20, "saputra")
 
 	assert.Equal(t, "lintang", page.GetString(0))
 	assert.Equal(t, "birda", page.GetString(11))
